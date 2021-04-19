@@ -1,8 +1,8 @@
 class Media {
-    constructor(author, title, isCheckedOut){
-        this._author = author;
+    constructor(title, isCheckedOut, ratings){
         this._title = title;
         this._isCheckedOut = isCheckedOut;
+        this._ratings = ratings;
     }
 
     get author() {
@@ -32,40 +32,29 @@ class Media {
 };
 
 class Book extends Media {
+    constructor(author, title, pages, isCheckedOut, ratings) {
+        super(title, isCheckedOut, ratings);
+        this._author = author;
+        this._pages = pages;
+    }
 
 };
 
 class Movie extends Media{
+    constructor(director, title, runTime, isCheckedOut, ratings){
+        super(title, isCheckedOut, ratings);
+        this._director = director;
+        this,_runTime = runTime;
+    }
 
 };
 
 class CD extends Media{
-
-};
-/*
-const Book {
-    author: '',
-    title: '',
-    pages: 44,
-    isCheckedOut: false,
-    ratings: []
-    
-    };
-
-const Movie {
-    director: '',
-    title: '',
-    runTime: 67,
-    isCheckedOut: false,
-    ratings: []
+    constructor(artist, title, isCheckedOut, ratings, songs){
+        super(title, isCheckedOut, ratings);
+        this._artist = artist;
+        this._songs = songs;
+    }
 
 };
 
-const CD {
-    artist: '',
-    title: '',
-    isCheckedOut: false,
-    ratings: [],
-    songs: ['']
-};
-*/
