@@ -12,27 +12,33 @@ class Media {
     get isCheckedOut() {
         return this._isCheckedOut;
     }
+    set isCheckedOut(value){
+        this._isCheckedOut = value;
+    }
     
     get ratings() {
         return this._ratings;
     }
     
+    set ratings(value){
+        if(typeof value ==='number')
+        this.ratings.push(value);
+        else
+        console.log('Enter only number');
+    }
     getAverageRating() {
         if(this.ratings.length === 0)
-        return `has not been evaluated`; else
-        return this.ratings.reduce((num1, num2) => num1+num2)/this.ratings.length.toFixed(2);
+        return `has not been evaluated`; else {
+        return (this.ratings.reduce((num1, num2) => num1+num2)/this.ratings.length).toFixed(2);
+            }
         }
 
     toggleCheckOutStatus() {
-        this._isCheckedOut = !this.isCheckedOut;
+        this.isCheckedOut = !this.isCheckedOut;
     }
 
-    addRating(val) {
-        if(typeof val !== 'number')
-        return `Enter a number`;
-        else
-        this._ratings.push(val);
-        
+    addRating(rate) {
+        this.ratings = rate;    
     }
 
 };
@@ -54,10 +60,11 @@ class Book extends Media {
 };
 
 class Movie extends Media{
-    constructor(director, title, runTime){
+    constructor(director, title, runTime, link){
         super(title);
         this._director = director;
         this._runTime = runTime;
+        this._link = link;
     }
 
     get director() {
@@ -65,6 +72,9 @@ class Movie extends Media{
     }
     get runTime() {
         return this._runTime;
+    }
+    get link() {
+        return this._link;
     }
 
 };
@@ -86,13 +96,23 @@ class CD extends Media{
 };
 
 // enter data in this format: ('director', 'title', run hours in minute ex: 120);
-const film1 = new Movie ('Director', 'Title', 90);
+const film1 = new Movie ('Tim Story', 'Tom & Jerry', 101, 'https://ultramovies.net/titles/21751/tom-and-jerry');
 film1.addRating(7);
 film1.addRating(9);
 film1.addRating(3);
 film1.getAverageRating();
-console.log(film1);
+
+const film2 = new Movie ('Patty Jenkins', 'Wonder Woman 1984 ', 151, 'https://ultramovies.net/titles/1404/wonder-woman-1984');
+film1.getAverageRating();
+
+function movieResult(film){
+    console.log(`Title: ${film.title}\nDirector: ${film.director}\nRunning Time: ${film.runTime} mins.
+Rating: ${film.getAverageRating()}\nLink: ${film.link}`);
+};
+
+movieResult(film1);
+movieResult(film2);
 
 // enter data in this format: ('artist', ['song1', 'song2', ... 'song n'], title);
-const cd1 = new CD ('Dan Balad',['Dragostea din tei', 'foaie verde', 'chiperi iute'], 'Muzica de estrada anii 90');
-console.log(cd1);
+
+//I'm a tired
