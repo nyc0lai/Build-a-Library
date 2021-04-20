@@ -96,22 +96,22 @@ class CD extends Media{
 };
 
 // enter data in this format: ('director', 'title', run hours in minute ex: 120);
-const film1 = new Movie ('Tim Story', 'Tom & Jerry', 101, 'https://ultramovies.net/titles/21751/tom-and-jerry');
-film1.addRating(7);
-film1.addRating(9);
-film1.addRating(3);
-film1.getAverageRating();
+const movie1 = new Movie ('Tim Story', 'Tom & Jerry', 101, 'https://ultramovies.net/titles/21751/tom-and-jerry');
+movie1.addRating(7);
+movie1.addRating(9);
+movie1.addRating(3);
+movie1.getAverageRating();
 
-const film2 = new Movie ('Patty Jenkins', 'Wonder Woman 1984 ', 151, 'https://ultramovies.net/titles/1404/wonder-woman-1984');
-film1.getAverageRating();
+const movie2 = new Movie ('Patty Jenkins', 'Wonder Woman 1984 ', 151, 'https://ultramovies.net/titles/1404/wonder-woman-1984');
+movie1.getAverageRating();
 
-function movieResult(film){
-    console.log(`Title: ${film.title}\nDirector: ${film.director}\nRunning Time: ${film.runTime} mins.
-Rating: ${film.getAverageRating()}\nLink: ${film.link}`);
+function movieResult(movie){
+    console.log(`Title: ${movie.title}\nDirector: ${movie.director}\nRunning Time: ${movie.runTime} mins.
+Rating: ${movie.getAverageRating()}\nLink: ${movie.link}`);
 };
 
-movieResult(film1);
-movieResult(film2);
+movieResult(movie1);
+movieResult(movie2);
 
 // enter data in this format: ('artist', ['song1', 'song2', ... 'song n'], title);
 
