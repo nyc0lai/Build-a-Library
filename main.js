@@ -85,7 +85,7 @@ class Movie extends Media{
     }
 
 };
-
+//subclasses CD
 class CD extends Media{
     constructor(artist, songs, title){
         super(title);
