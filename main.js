@@ -1,3 +1,4 @@
+//superclass
 class Media {
     constructor(title){
         this._title = title;
@@ -28,9 +29,8 @@ class Media {
     }
     getAverageRating() {
         if(this.ratings.length === 0)
-        return `has not been evaluated`; else {
+        return `has not been evaluated`;
         return (this.ratings.reduce((num1, num2) => num1+num2)/this.ratings.length).toFixed(2);
-            }
         }
 
     toggleCheckOutStatus() {
@@ -49,7 +49,7 @@ class Media {
     }
 
 };
-
+//subclasses Book
 class Book extends Media {
     constructor(author, pages, title) {
         super(title);
@@ -65,7 +65,7 @@ class Book extends Media {
     }
 
 };
-
+//subclasses Movie
 class Movie extends Media{
     constructor(director, title, runTime, link){
         super(title);
