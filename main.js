@@ -41,6 +41,13 @@ class Media {
         this.ratings = rate;    
     }
 
+    checkOut () {
+        if(this.isCheckedOut)
+        return 'Yes';
+        return 'No';
+
+    }
+
 };
 
 class Book extends Media {
@@ -100,14 +107,13 @@ const movie1 = new Movie ('Tim Story', 'Tom & Jerry', 101, 'https://ultramovies.
 movie1.addRating(7);
 movie1.addRating(9);
 movie1.addRating(3);
-movie1.getAverageRating();
 
 const movie2 = new Movie ('Patty Jenkins', 'Wonder Woman 1984 ', 151, 'https://ultramovies.net/titles/1404/wonder-woman-1984');
-movie1.getAverageRating();
+movie2.toggleCheckOutStatus();
 
 function movieResult(movie){
     console.log(`Title: ${movie.title}\nDirector: ${movie.director}\nRunning Time: ${movie.runTime} mins.
-Rating: ${movie.getAverageRating()}\nLink: ${movie.link}`);
+Rating: ${movie.getAverageRating()}\nLink: ${movie.link}\nVerified: ${movie.checkOut()}`);
 };
 
 movieResult(movie1);
