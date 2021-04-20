@@ -24,12 +24,8 @@ class Media {
         }
 
     toggleCheckOutStatus() {
-        if(this.isCheckedOut === false)
-        this.isCheckedOut = true;
-            else
-        this.isCheckedOut = false;
-        }
-    
+        this._isCheckedOut = !this.isCheckedOut;
+    }
 
     addRating(val) {
         if(typeof val !== 'number')
@@ -42,8 +38,8 @@ class Media {
 };
 
 class Book extends Media {
-    constructor(author, pages, title, isCheckedOut, ratings) {
-        super(title, isCheckedOut, ratings);
+    constructor(author, pages, title) {
+        super(title);
         this._author = author;
         this._pages = pages;
     }
@@ -58,8 +54,8 @@ class Book extends Media {
 };
 
 class Movie extends Media{
-    constructor(director, title, runTime, isCheckedOut, ratings){
-        super(title, isCheckedOut, ratings);
+    constructor(director, title, runTime){
+        super(title);
         this._director = director;
         this._runTime = runTime;
     }
@@ -74,8 +70,8 @@ class Movie extends Media{
 };
 
 class CD extends Media{
-    constructor(artist, songs, title, isCheckedOut, ratings){
-        super(title, isCheckedOut, ratings);
+    constructor(artist, songs, title){
+        super(title);
         this._artist = artist;
         this._songs = songs;
     }
